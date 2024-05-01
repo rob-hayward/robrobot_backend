@@ -1,4 +1,4 @@
-# robrobot_backend/serializers.py
+# robrobot_app/serializers.py
 from rest_framework import serializers
 from .models import Profile, Project, GitRepository, ProjectImage
 
