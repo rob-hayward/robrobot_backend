@@ -3,6 +3,7 @@ from django.db import models
 
 
 class Profile(models.Model):
+    intro = models.TextField(null=True)
     bio = models.TextField()
 
     def __str__(self):
@@ -19,6 +20,7 @@ class GitRepository(models.Model):
 
 class Project(models.Model):
     title = models.CharField(max_length=100)
+    synopsis = models.TextField(null=True)
     overview = models.TextField(null=True)
     key_features = models.TextField(null=True)
     technical_stack = models.TextField(null=True)
