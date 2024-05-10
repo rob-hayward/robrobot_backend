@@ -1,0 +1,14 @@
+version: '3.8'  # Ensure you use a specific version like 3.8
+services:
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8000:8000"
+    environment:
+      - SECRET_KEY=${SECRET_KEY}
+      - DEBUG=${DEBUG}
+      - DATABASE_URL=${DATABASE_URL}
+    env_file:
+      - ./.env

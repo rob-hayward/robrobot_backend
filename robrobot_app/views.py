@@ -2,6 +2,7 @@
 from rest_framework import viewsets
 from .models import Profile, Project
 from .serializers import ProfileSerializer, ProjectSerializer
+from django.http import HttpResponse
 
 
 class ProfileViewSet(viewsets.ReadOnlyModelViewSet):
@@ -13,3 +14,6 @@ class ProjectViewSet(viewsets.ModelViewSet):
     queryset = Project.objects.all()
     serializer_class = ProjectSerializer
 
+
+def health_check(request):
+    return HttpResponse("Health check passed!", status=200)
