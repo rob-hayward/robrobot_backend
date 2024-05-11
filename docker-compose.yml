@@ -1,4 +1,4 @@
-version: '3.8'  # Ensure you use a specific version like 3.8
+version: '3.8'
 services:
   backend:
     build:
@@ -10,5 +10,6 @@ services:
       - SECRET_KEY=${SECRET_KEY}
       - DEBUG=${DEBUG}
       - DATABASE_URL=${DATABASE_URL}
+      - ALLOWED_HOSTS=${ALLOWED_HOSTS}
     env_file:
       - ./.env
