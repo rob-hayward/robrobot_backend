@@ -13,8 +13,11 @@ RUN pip install --no-cache-dir -r requirements.txt
 # Copy the rest of the application code to the working directory
 COPY . .
 
+# Set the DJANGO_SETTINGS_MODULE environment variable
+ENV DJANGO_SETTINGS_MODULE=robrobot_backend.production
+
 # Expose the port on which the Django app will run
 EXPOSE 8000
 
-# Run the Django development server
-CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
+# Run the Django production server
+CMD ["gunicorn", "robrobot_backend.wsgi:application", "--bind", "0.0.0.0:8000"]

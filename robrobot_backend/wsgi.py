@@ -1,16 +1,10 @@
-"""
-WSGI config for robrobot_backend project.
-
-It exposes the WSGI callable as a module-level variable named ``application``.
-
-For more information on this file, see
-https://docs.djangoproject.com/en/4.2/howto/deployment/wsgi/
-"""
+# robrobot_backend/wsgi.py
 
 import os
 
 from django.core.wsgi import get_wsgi_application
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'robrobot_backend.settings')
+settings_module = 'robrobot_backend.production' if os.getenv('DJANGO_SETTINGS_MODULE') else 'robrobot_backend.settings'
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', settings_module)
 
 application = get_wsgi_application()
