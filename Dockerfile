@@ -4,6 +4,9 @@ FROM python:3.9-slim-buster
 # Set the working directory to /app
 WORKDIR /app
 
+# Install curl
+RUN apt-get update && apt-get install -y curl
+
 # Copy requirements.txt to the working directory
 COPY requirements.txt ./
 

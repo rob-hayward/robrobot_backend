@@ -13,3 +13,9 @@ services:
       - ALLOWED_HOSTS=${ALLOWED_HOSTS}
     env_file:
       - ./.env
+    networks:
+      - robrobot_network
+
+networks:
+  robrobot_network:
+    external: true

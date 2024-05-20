@@ -1,4 +1,3 @@
-# robrobot_backend/settings.py
 import os
 from pathlib import Path
 from dotenv import load_dotenv
@@ -16,7 +15,7 @@ SECRET_KEY = os.getenv('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.getenv('DEBUG', 'False').lower() == 'true'
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1']  # 'localhost' and '127.0.0.1' for development
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'backend']  # Added 'backend' here
 
 # Static files (CSS, JavaScript, Images)
 STATIC_URL = '/static/'
@@ -50,6 +49,8 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
+APPEND_SLASH = True
 
 CORS_ORIGIN_ALLOW_ALL = DEBUG  # Allow all origins only in development
 

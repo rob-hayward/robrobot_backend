@@ -3,10 +3,12 @@ from .settings import *  # Import base settings
 
 DEBUG = False
 
-ALLOWED_HOSTS = ['robrobot-loadbalancer-980562543.eu-west-2.elb.amazonaws.com']  # Replace with your load balancer URL
+ALLOWED_HOSTS = ['robrobot-loadbalancer-980562543.eu-west-2.elb.amazonaws.com', 'localhost', '127.0.0.1', 'backend']  # Add 'localhost' for local testing
 
 CORS_ORIGIN_WHITELIST = [
-    'http://robrobot-loadbalancer-980562543.eu-west-2.elb.amazonaws.com',  # Replace with your load balancer URL
+    'http://robrobot-loadbalancer-980562543.eu-west-2.elb.amazonaws.com',
+    'http://localhost',
+    'http://localhost:80',
 ]
 
 # Static file settings for production
