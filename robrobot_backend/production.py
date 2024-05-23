@@ -1,9 +1,9 @@
-# robrobot_backend/production.py
-from .settings import *  # Import base settings
+# production.py
+from .settings import *
 
-DEBUG = False
+DEBUG = True  # False for production, True for development
 
-ALLOWED_HOSTS = ['robrobot-loadbalancer-980562543.eu-west-2.elb.amazonaws.com', 'localhost', '127.0.0.1', 'backend']  # Add 'localhost' for local testing
+ALLOWED_HOSTS = ['robrobot-loadbalancer-980562543.eu-west-2.elb.amazonaws.com', 'localhost', '127.0.0.1', 'backend']
 
 CORS_ORIGIN_WHITELIST = [
     'http://robrobot-loadbalancer-980562543.eu-west-2.elb.amazonaws.com',
