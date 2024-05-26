@@ -18,9 +18,18 @@ class GitRepository(models.Model):
         return self.name
 
 
+class Technology(models.Model):
+    name = models.CharField(max_length=100)
+    icon = models.ImageField(upload_to='technology_icons/')
+
+    def __str__(self):
+        return self.name
+
+
 class Project(models.Model):
     title = models.CharField(max_length=100)
     synopsis = models.TextField(null=True)
+    technologies_used = models.ManyToManyField(Technology, blank=True, related_name='projects')
     overview = models.TextField(null=True)
     key_features = models.TextField(null=True)
     technical_stack = models.TextField(null=True)
@@ -40,4 +49,3 @@ class ProjectImage(models.Model):
 
     def __str__(self):
         return f"{self.project.title} - Image"
-
