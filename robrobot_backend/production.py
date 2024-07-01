@@ -1,17 +1,19 @@
-# production.py
+# robrobot_backend/production.py
 from .settings import *
 
-DEBUG = True  # False for production, True for development
+DEBUG = False
 
-ALLOWED_HOSTS = ['robrobot-loadbalancer-980562543.eu-west-2.elb.amazonaws.com', 'localhost', '127.0.0.1', 'backend']
+ALLOWED_HOSTS = ['robhayward.io', 'www.robhayward.io', 'robrobot-loadbalancer-980562543.eu-west-2.elb.amazonaws.com', 'localhost', '127.0.0.1', 'backend']
 
 CORS_ORIGIN_WHITELIST = [
-    'http://robrobot-loadbalancer-980562543.eu-west-2.elb.amazonaws.com',
+    'http://robhayward.io',
+    'https://robhayward.io',
+    'http://www.robhayward.io',
+    'https://www.robhayward.io',
     'http://localhost',
     'http://localhost:80',
 ]
 
-# Static file settings for production
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
-# Add any other production-specific settings here
+# Additional production-specific settings can go here

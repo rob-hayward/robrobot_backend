@@ -1,3 +1,5 @@
+# robrobot_backend/settings.py
+
 import os
 from pathlib import Path
 from dotenv import load_dotenv
@@ -15,18 +17,16 @@ SECRET_KEY = os.getenv('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.getenv('DEBUG', 'False').lower() == 'true'
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'backend']  # Added 'backend' here
+ALLOWED_HOSTS = ['robhayward.io', 'www.robhayward.io', 'robrobot-loadbalancer-980562543.eu-west-2.elb.amazonaws.com', 'localhost', '127.0.0.1', 'backend']
 
 # Static files (CSS, JavaScript, Images)
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
-# Add this line to collect static files from individual apps
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),
 ]
 
-# Application definition
 INSTALLED_APPS = [
     'corsheaders',
     'django.contrib.admin',
@@ -52,12 +52,18 @@ MIDDLEWARE = [
 
 APPEND_SLASH = True
 
-CORS_ORIGIN_ALLOW_ALL = DEBUG  # Allow all origins only in development
+CORS_ORIGIN_ALLOW_ALL = DEBUG
 
 if not DEBUG:
     CORS_ORIGIN_WHITELIST = [
-        'http://localhost:3000',  # Replace with your frontend URL in development
+        'http://robhayward.io',
+        'https://robhayward.io',
+        'http://www.robhayward.io',
+        'https://www.robhayward.io',
+        'http://localhost:3000',
     ]
+
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
 ROOT_URLCONF = 'robrobot_backend.urls'
 
@@ -79,12 +85,17 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'robrobot_backend.wsgi.application'
 
-# Database
 DATABASES = {
     'default': dj_database_url.config(default=os.getenv('DATABASE_URL'))
 }
 
-# Password validation
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = os.getenv('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD')
+
 AUTH_PASSWORD_VALIDATORS = [
     {
         'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
@@ -100,7 +111,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-# Internationalization
 LANGUAGE_CODE = 'en-us'
 
 TIME_ZONE = 'UTC'
@@ -109,8 +119,6 @@ USE_I18N = True
 
 USE_TZ = True
 
-# Static files (CSS, JavaScript, Images)
 STATIC_URL = '/static/'
 
-# Default primary key field type
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
