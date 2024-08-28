@@ -12,6 +12,7 @@ CORS_ORIGIN_WHITELIST = [
     'https://www.robhayward.io',
     'http://localhost',
     'http://localhost:80',
+    'https://robrobot-backend.onrender.com'
 ]
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
