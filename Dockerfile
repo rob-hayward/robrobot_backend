@@ -13,6 +13,9 @@ COPY requirements.txt ./
 # Install dependencies
 RUN pip install --no-cache-dir -r requirements.txt
 
+# Create directories for static and media files
+RUN mkdir -p /app/static /app/media
+
 # Copy the rest of the application code to the working directory
 COPY . .
 

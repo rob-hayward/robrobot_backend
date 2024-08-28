@@ -1,3 +1,10 @@
 .DS_Store
 */.DS_Store
-staticfiles/
+/static
+/media
+*.pyc
+__pycache__/
+db.sqlite3
+.env
+.vscode/
+*.log
