@@ -17,7 +17,7 @@ SECRET_KEY = os.getenv('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.getenv('DEBUG', 'False').lower() == 'true'
 
-ALLOWED_HOSTS = ['robhayward.io', 'www.robhayward.io', 'localhost', '127.0.0.1', 'backend', 'robrobot-backend.onrender.com', 'https://robrobot-frontend.onrender.com']
+ALLOWED_HOSTS = ['robhayward.io', 'www.robhayward.io', 'localhost', '127.0.0.1', 'robrobot-backend.onrender.com']
 
 # Static files (CSS, JavaScript, Images)
 STATIC_URL = '/static/'
@@ -55,14 +55,12 @@ CORS_ORIGIN_ALLOW_ALL = DEBUG
 
 if not DEBUG:
     CORS_ORIGIN_WHITELIST = [
-        'http://robhayward.io',
         'https://robhayward.io',
-        'http://www.robhayward.io',
         'https://www.robhayward.io',
-        'http://localhost:3000',
-        'robrobot-backend.onrender.com',
         'https://robrobot-frontend.onrender.com'
     ]
+
+CORS_ALLOW_CREDENTIALS = True
 
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
