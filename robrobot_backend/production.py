@@ -3,7 +3,7 @@ from .settings import *
 
 DEBUG = False
 
-ALLOWED_HOSTS = ['robhayward.io', 'www.robhayward.io', 'robrobot-loadbalancer-980562543.eu-west-2.elb.amazonaws.com', 'localhost', '127.0.0.1', 'backend', 'robrobot-backend.onrender.com']
+ALLOWED_HOSTS = ['robhayward.io', 'www.robhayward.io', 'localhost', '127.0.0.1', 'backend', 'robrobot-backend.onrender.com']
 
 CORS_ORIGIN_WHITELIST = [
     'http://robhayward.io',
@@ -12,7 +12,8 @@ CORS_ORIGIN_WHITELIST = [
     'https://www.robhayward.io',
     'http://localhost',
     'http://localhost:80',
-    'https://robrobot-backend.onrender.com'
+    'https://robrobot-backend.onrender.com',
+    'https://robrobot-frontend.onrender.com'
 ]
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')

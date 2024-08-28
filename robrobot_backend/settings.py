@@ -17,7 +17,7 @@ SECRET_KEY = os.getenv('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.getenv('DEBUG', 'False').lower() == 'true'
 
-ALLOWED_HOSTS = ['robhayward.io', 'www.robhayward.io', 'robrobot-loadbalancer-980562543.eu-west-2.elb.amazonaws.com', 'localhost', '127.0.0.1', 'backend', 'robrobot-backend.onrender.com']
+ALLOWED_HOSTS = ['robhayward.io', 'www.robhayward.io', 'localhost', '127.0.0.1', 'backend', 'robrobot-backend.onrender.com', 'https://robrobot-frontend.onrender.com']
 
 # Static files (CSS, JavaScript, Images)
 STATIC_URL = '/static/'
@@ -60,6 +60,8 @@ if not DEBUG:
         'http://www.robhayward.io',
         'https://www.robhayward.io',
         'http://localhost:3000',
+        'robrobot-backend.onrender.com',
+        'https://robrobot-frontend.onrender.com'
     ]
 
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
