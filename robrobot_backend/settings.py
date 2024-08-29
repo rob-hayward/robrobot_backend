@@ -54,7 +54,7 @@ APPEND_SLASH = True
 CORS_ORIGIN_ALLOW_ALL = DEBUG
 
 if not DEBUG:
-    CORS_ORIGIN_WHITELIST = [
+    CORS_ALLOWED_ORIGINS = [
         'https://robhayward.io',
         'https://www.robhayward.io',
         'https://robrobot-frontend.onrender.com'
