@@ -10,9 +10,17 @@ class GitRepositorySerializer(serializers.ModelSerializer):
 
 
 class ProjectImageSerializer(serializers.ModelSerializer):
+    image = serializers.SerializerMethodField()
+
     class Meta:
         model = ProjectImage
         fields = ['id', 'image']
+
+    def get_image(self, obj):
+        request = self.context.get('request')
+        if obj.image:
+            return request.build_absolute_uri(obj.image.url)
+        return None
 
 
 class TechnologySerializer(serializers.ModelSerializer):
